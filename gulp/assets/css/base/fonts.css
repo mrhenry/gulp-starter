@@ -1,0 +1,21 @@
+/*
+
+Here's a template for you to use.
+Please note that we're only serving woff2 & woff anymore.
+This covers IE9+ and all evergreens.
+Always provide nice fallback fonts.
+
+Tools:
+ - https://meowni.ca/font-style-matcher/
+
+Sources:
+ - http://caniuse.com/#search=woff
+
+@font-face {
+  font-family: 'GT America';
+  src: url('fonts/gt-america-medium.woff2') format('woff2'),
+       url('fonts/gt-america-medium.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+}
+*/

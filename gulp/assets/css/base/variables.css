@@ -1,0 +1,9 @@
+:root {
+	--font-sans: 'Helvetica Neue', sans-serif;
+	--font-serif: 'Georgia', serif;
+
+	--color-foreground: #222;
+	--color-background: #fefefe;
+	--color-white: #fefefe;
+	--color-black: #222;
+}
