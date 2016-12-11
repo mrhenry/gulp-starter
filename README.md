@@ -2,7 +2,7 @@
 
 A front-end story.
 
-WIP by [@pieterbeulque](https://github.com/pieterbeulque). Not ready for production use.]
+WIP by [@pieterbeulque](https://github.com/pieterbeulque). Not ready for production use.
 
 ---
 
