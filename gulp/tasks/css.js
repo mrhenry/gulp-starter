@@ -6,6 +6,7 @@ const cssnano       = require('cssnano');
 const cssnext       = require('postcss-cssnext');
 const inlineImports = require('postcss-import');
 const nested        = require('postcss-nested');
+const rename = require('gulp-rename');
 
 gulp.task('css', () => {
 	// cssnext also includes autoprefixer
@@ -13,12 +14,14 @@ gulp.task('css', () => {
 		inlineImports({ path: config.src }),
 		cssnext({ browsers: config.browsers }),
 		nested(),
-		mqPacker(),
-		cssnano({ autoprefixer: false })
+		mqPacker()
 	];
 
 	return gulp
 		.src(config.src)
 		.pipe(postcss(processors))
+		.pipe(gulp.dest(config.dest))
+		.pipe(postcss([ cssnano({ autoprefixer: false }) ]))
+		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest(config.dest));
 });
