@@ -12,7 +12,11 @@ const sourcePath   = './gulp/assets';
 
 module.exports = {
 	publicAssets: buildPath,
-	js: {},
+	js: {
+		src: sourcePath + '/js/app.js',
+		dest: buildPath + '/js',
+		bundleName: 'app.js'
+	},
 	css: {
 		src: sourcePath + '/css/*.css',
 		dest: buildPath + '/css',
