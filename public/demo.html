@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Progressive Enhancement anno 2017</title>
+
+	<link rel="stylesheet" href="assets/css/application.css">
+
+	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es5,es6,es7&flags=gated&version=latest&unknown=ignore"></script>
+
+	<script>
+		// Mustard Cutting. If we support native Custom Elements (v1)
+		// we assume decent ES2015 support & load in the Rollup bundle
+		// Else, we load a fallback & run the transpiled bundle from Babel
+		if ('customElements' in window) {
+			document.write('<script src="assets/js/app.es6.js" defer><\/script>');
+		} else {
+			// IE9 & IE10
+			if (!('MutationObserver' in window)) {
+				document.write('<script src="assets/js/mutation-observer.js" defer><\/script>');
+			}
+
+			document.write('<script src="assets/js/custom-elements.js" defer><\/script>');
+			document.write('<script src="assets/js/app.js" defer><\/script>');
+		}
+	</script>
+</head>
+<body>
+	<header>
+	</header>
+
+	<main>
+		<article>
+			<h1>We're changing the way we're building the web</h1>
+			<span><em>*record scratch*</em> that's right, we're starting all over</span>
+
+			<section>
+				<h2>Here's how it's going to work</h2>
+				<p>
+					We are going to embrace the Progressive Enhancement philosophy. That means that when building a new website, we welcome the weirdness and unpredictability of the web and try to serve as much people as possible the content they are looking for.
+				</p>
+				<p>
+					Happy users makes happy clients makes happy Mr. Henry.
+				</p>
+			</section>
+		</article>
+	</main>
+
+	<mr-carousel loop>
+		<img src="http://placehold.it/400x400/ff9900/000000">
+		<img src="http://placehold.it/400x400/0099ff/000000">
+	</mr-carousel>
+
+</body>
+</html>

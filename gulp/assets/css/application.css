@@ -8,5 +8,13 @@
 @import 'base/utilities.css';
 
 /* Modules */
+@import 'modules/carousel.css';
 
 /* Layouts */
+
+/* Inbox */
+main {
+	width: 568px;
+	margin-left: auto;
+	margin-right: auto;
+}
