@@ -53,7 +53,7 @@ This leaves us with four files: `app.es6.js`, `app.es6.min.js`, `app.js` & `app.
 
 In our website we can do some easy mustard-cutting on Custom Elements support to load the ES6 bundle, or choose for the neccessary polyfills and the ES5 bundle.  
 
-```js
+```html
 <script>
   // Mustard Cutting. If we support native Custom Elements (v1)
   // we assume decent ES2015 support & load in the Rollup bundle
