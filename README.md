@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="/mrhenry/gulp-starter/blob/master/docs/assets/logo.png?raw=true">
+	<img src="/docs/assets/logo.png?raw=true">
 </p>
 
 ## What is this?
