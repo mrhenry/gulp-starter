@@ -1,0 +1,11 @@
+@custom-media --mq-from-xsmall (width >= 568px);
+@custom-media --mq-from-small  (width >= 768px);
+@custom-media --mq-from-medium (width >= 1024px);
+@custom-media --mq-from-wide   (width >= 1380px);
+@custom-media --mq-from-large  (width >= 1680px);
+
+@custom-media --mq-up-to-xsmall (width < 568px);
+@custom-media --mq-up-to-small  (width < 768px);
+@custom-media --mq-up-to-medium (width < 1024px);
+@custom-media --mq-up-to-wide   (width < 1380px);
+@custom-media --mq-up-to-large  (width < 1680px);
