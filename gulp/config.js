@@ -15,11 +15,19 @@ module.exports = {
 	js: {
 		src: sourcePath + '/js/app.js',
 		dest: buildPath + '/js',
+		watch: [
+			sourcePath + '/js/**/*.js',
+			sourcePath + '/js/app.js'
+		],
 		bundleName: 'app.js'
 	},
 	css: {
 		src: sourcePath + '/css/*.css',
 		dest: buildPath + '/css',
+		watch: [
+			sourcePath + '/css/**/*.css',
+			sourcePath + '/css/*.css'
+		],
 		browsers: [ 'last 2 versions', '> 0.5% in BE' ]
 	},
 	images: {
