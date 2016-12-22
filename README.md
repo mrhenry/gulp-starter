@@ -31,9 +31,15 @@ A `.min.css` version of every `.css` file in the source path also gets built (po
 
 ### Fonts
 
-Use only in case of self-hosted fonts. Best practices for Typekit
+Use only in case of self-hosted fonts.
 
 Fonts are not being modified by the `gulp fonts` task. They simply are being copied over from the source path to the destination path.
+
+*Ask @pieterbeulque for loading approach, considering [Web Font Loader](https://github.com/typekit/webfontloader).*
+
+### Icons
+
+Using an external SVG with `<symbol>` definitions. External SVG means no Internet Explorer support. If you want to support icons in IE too, include [svg4everybody](https://jonathantneal.github.io/svg4everybody/) in your primary scripts.
 
 ### Images
 
