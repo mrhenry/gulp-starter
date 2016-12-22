@@ -30,6 +30,11 @@ module.exports = {
 		],
 		browsers: [ 'last 2 versions', '> 0.5% in BE' ]
 	},
+	icons: {
+		src: sourcePath + '/icons/*.svg',
+		dest: buildPath + '/icons',
+		filename: 'icons.svg'
+	},
 	images: {
 		src: sourcePath + '/images/**',
 		dest: buildPath + '/images'

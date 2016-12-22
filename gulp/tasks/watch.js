@@ -4,7 +4,7 @@ const watch = require('gulp-watch');
 
 gulp.task(
 	'watch',
-	['fonts', 'images', 'css', 'javascript'],
+	['css', 'fonts', 'icons', 'images', 'javascript'],
 	() => {
 		watch(config.css.watch, () => gulp.start('css'));
 		watch(config.images.src, () => gulp.start('images'));
