@@ -12,11 +12,28 @@ const sourcePath   = './gulp/assets';
 
 module.exports = {
 	publicAssets: buildPath,
-	js: {},
+	js: {
+		src: sourcePath + '/js/app.js',
+		dest: buildPath + '/js',
+		watch: [
+			sourcePath + '/js/**/*.js',
+			sourcePath + '/js/app.js'
+		],
+		bundleName: 'app.js'
+	},
 	css: {
 		src: sourcePath + '/css/*.css',
 		dest: buildPath + '/css',
+		watch: [
+			sourcePath + '/css/**/*.css',
+			sourcePath + '/css/*.css'
+		],
 		browsers: [ 'last 2 versions', '> 0.5% in BE' ]
+	},
+	icons: {
+		src: sourcePath + '/icons/*.svg',
+		dest: buildPath + '/icons',
+		filename: 'icons.svg'
 	},
 	images: {
 		src: sourcePath + '/images/**',
