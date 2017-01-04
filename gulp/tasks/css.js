@@ -1,7 +1,6 @@
 const gulp          = require('gulp');
 const config        = require('../config').css;
 const postcss       = require('gulp-postcss');
-const mqPacker      = require('css-mqpacker');
 const cssnano       = require('cssnano');
 const cssnext       = require('postcss-cssnext');
 const inlineImports = require('postcss-import');
@@ -13,7 +12,6 @@ gulp.task('css', () => {
 		inlineImports({ path: config.src }),
 		cssnext({ browsers: config.browsers }),
 		nested(),
-		mqPacker(),
 		cssnano({ autoprefixer: false })
 	];
 

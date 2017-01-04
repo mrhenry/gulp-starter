@@ -6,7 +6,6 @@
   "author": "@pieterbeulque for @mrhenry",
   "license": "MIT",
   "devDependencies": {
-    "css-mqpacker": "^5.0.1",
     "cssnano": "^3.8.2",
     "gulp": "^3.9.1",
     "gulp-changed": "^1.3.2",
