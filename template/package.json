@@ -1,5 +1,5 @@
 {
-  "name": "gulp-starter",
+  "name": "{{PROJECT_SLUG}}",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

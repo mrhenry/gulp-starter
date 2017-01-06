@@ -1,8 +1,8 @@
 //
 // Editable configs
 //
-const clientName = 'pe-2017';
-const buildPath  = './public/assets'; // Change if your build location is different
+const clientName = '{{PROJECT_SLUG}}';
+const buildPath  = './{{PUBLIC_PATH}}/assets'; // Change if your build location is different
 
 // -----------------------------------------------------------------------------
 // Normally you don't have to edit below
