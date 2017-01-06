@@ -25,7 +25,6 @@ CSS is being transpiled some PostCSS plugins to a final single CSS files. The pr
 **postcss-import** inlines all `@import` statements into a single CSS file.  
 **cssnext** provides CSS4 compliance & runs Autoprefixer. Find [the docs here](http://cssnext.io/features/).  
 **postcss-nested** enables `&` behaviour and nested `@media`-queries much like SCSS.  
-**css-mqpacker** takes all seperate `@media`-blocks and combines them into a single `@media` at the end of the file.
 
 A `.min.css` version of every `.css` file in the source path also gets built (powered by `cssnano`).
 
