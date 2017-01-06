@@ -11,7 +11,7 @@ then
 
 else
 	echo -e "\n--> Yarn installed: OK"
-	echo -e "    $(which composer)"
+	echo -e "    $(which yarn)"
 
 fi
 
