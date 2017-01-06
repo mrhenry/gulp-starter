@@ -1,7 +1,7 @@
 {
-  "name": "pe-2017",
+  "name": "gulp-starter",
   "version": "1.0.0",
-  "description": "Progressive Enhancement anno 2017: A front-end setup",
+  "description": "",
   "main": "index.js",
   "author": "@pieterbeulque for @mrhenry",
   "license": "MIT",

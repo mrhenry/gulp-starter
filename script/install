@@ -1,33 +1,30 @@
 #!/usr/bin/env bash
 
+# Check yarn install
+if [[ -z "$(which yarn)" ]]
+then
+	echo -e "\n--> Can't find the yarn command."
+	echo -e "--> Make sure yarn is installed correctly. "
+	echo -e "--> $ brew install yarn"
+
+	exit 1
+
+else
+	echo -e "\n--> Yarn installed: OK"
+	echo -e "    $(which composer)"
+
+fi
+
 echo -e "\n--> Downloading gulp-starter\n"
 curl -L https://github.com/mrhenry/gulp-starter/archive/master.zip > gulp-starter-master.zip
 
-echo -e "\n--> Extractin\n"
+echo -e "\n--> Extracting\n"
 unzip gulp-starter-master.zip
 
 echo -e "\n--> Copying files\n"
 rm gulp-starter/README.md
-cp -R  gulp-starter-master/* ./
-cp -R  gulp-starter-master/.[^.]* ./
-
-echo -e "\n--> Bootstrapping\n"
-if [ -f wp-config.php ]
-then
-  PROJECT_NAME=${PWD##*/}
-  PROJECT_NAME=${PROJECT_NAME/wp_/''}
-
-  if [ ! -d wp-content/themes/$PROJECT_NAME ]
-  then
-    mkdir -p $PROJECT_NAME
-  fi
-
-  ln -sfvn wp-content/themes/$PROJECT_NAME public
-
-else
-  mkdir -p public
-
-fi
+cp -R  gulp-starter-master/template/* ./
+cp -R  gulp-starter-master/template/.[^.]* ./
 
 echo -e "\n--> Installing dependencies through Yarn\n"
 yarn install
@@ -35,17 +32,6 @@ yarn install
 echo -e "\n--> Removing installation files\n"
 rm -Rf ./gulp-starter-master*
 rm ./script/install
+rm -Rf ./docs*
 
 echo -e "\n--> That's all, folks!\n"
-
-cat << EOF
-_  _ ____ ___  ____    ___  _   _
-|\/| |__| |  \ |___    |__]  \_/
-|  | |  | |__/ |___    |__]   |
-
-_  _ ____     _  _ ____ _  _ ____ _   _
-|\/| |__/     |__| |___ |\ | |__/  \_/
-|  | |  \ .   |  | |___ | \| |  \   |
-
---> Enjoy!
-EOF
