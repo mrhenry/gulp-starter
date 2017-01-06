@@ -32,16 +32,16 @@ PUBLIC_PATH=public
 
 if [ -f wp-config.php ]
 then
-  PROJECT_NAME=${PROJECT_NAME/wp_/''}
+  PROJECT_SLUG=${PROJECT_SLUG/wp_/''}
 
-  PUBLIC_PATH=wp-content/themes/$PROJECT_NAME/public
+  PUBLIC_PATH=wp-content/themes/$PROJECT_SLUG/public
 fi
 
-mkdir -p PUBLIC_PATH
+mkdir -p $PUBLIC_PATH
 
-sed -i '' "s/{{PUBLIC_PATH}}/${PUBLIC_PATH}/g" ./gulp/config.js
-sed -i '' "s/{{PROJECT_SLUG}}/${PROJECT_SLUG}/g" ./package.json
-sed -i '' "s/{{PROJECT_SLUG}}/${PROJECT_SLUG}/g" ./gulp/config.js
+sed -i "s#{{PUBLIC_PATH}}#${PUBLIC_PATH}#g" ./gulp/config.js
+sed -i "s#{{PROJECT_SLUG}}#${PROJECT_SLUG}#g" ./package.json
+sed -i "s#{{PROJECT_SLUG}}#${PROJECT_SLUG}#g" ./gulp/config.js
 
 echo -e "\n--> Installing dependencies through Yarn\n"
 yarn install
