@@ -7,11 +7,13 @@ const buffer = require('vinyl-buffer');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const rollup = require('rollup-stream');
+const resolve = require('rollup-plugin-node-resolve');
 const babili = require('gulp-babel-minify');
 
 gulp.task('javascript:es6', () => {
 	return rollup({
-		entry: config.src
+		entry: config.src,
+		plugins: [ resolve() ]
 	}).pipe(source(config.bundleName.replace('.js', '.es6.js')))
 	  .pipe(buffer())
 	  .pipe(gulp.dest(config.dest))
