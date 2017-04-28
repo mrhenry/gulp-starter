@@ -1,17 +1,53 @@
 #!/usr/bin/env bash
 
+# Example usage:
+# gulp-starter will take `pwd` as project name & `public` as target directory
+# gulp-starter --public-path foo will take `pwd` as project name & `foo` as target directory
+# gulp-starter --public-path foo bar will take `bar` as project name & `foo` as target directory
+
+# Parse incoming arguments
+while [[ $# -gt 1 ]]
+do
+key="$1"
+
+case $key in
+    -p|--public-path)
+    PUBLIC_PATH="$2"
+    shift # past argument
+    ;;
+    -t|--template)
+        if [[ $2 == "wp" ]]
+        then
+            PUBLIC_PATH=wp-content/themes/PROJECT_SLUG/public
+        else
+            echo "Unsupported template: $2"
+            exit 1
+        fi
+    shift # past argument
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+shift # past argument or value
+done
+
+PROJECT_SLUG=${1:-${PWD##*/}}
+PUBLIC_PATH=${PUBLIC_PATH:-"public"}
+PUBLIC_PATH=${PUBLIC_PATH/"PROJECT_SLUG"/$PROJECT_SLUG}
+
 # Check yarn install
 if [[ -z "$(which yarn)" ]]
 then
-	echo -e "\n--> Can't find the yarn command."
-	echo -e "--> Make sure yarn is installed correctly. "
-	echo -e "--> $ brew install yarn"
+    echo -e "\n--> Can't find the yarn command."
+    echo -e "--> Make sure yarn is installed correctly. "
+    echo -e "--> $ brew install yarn"
 
-	exit 1
+    exit 1
 
 else
-	echo -e "\n--> Yarn installed: OK"
-	echo -e "    $(which yarn)"
+    echo -e "\n--> Yarn installed: OK"
+    echo -e "    $(which yarn)"
 
 fi
 
@@ -23,19 +59,10 @@ unzip gulp-starter-master.zip
 
 echo -e "\n--> Copying files\n"
 rm gulp-starter/README.md
-cp -R  gulp-starter-master/template/* ./
-cp -R  gulp-starter-master/template/.[^.]* ./
+cp -R gulp-starter-master/template/* ./
+cp -R gulp-starter-master/template/.[^.]* ./
 
 echo -e "\n--> Bootstrapping\n"
-PROJECT_SLUG=${PWD##*/}
-PUBLIC_PATH=public
-
-if [ -f wp-config.php ]
-then
-  PROJECT_SLUG=${PROJECT_SLUG/wp_/''}
-
-  PUBLIC_PATH=wp-content/themes/$PROJECT_SLUG/public
-fi
 
 mkdir -p $PUBLIC_PATH
 
