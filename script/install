@@ -39,30 +39,36 @@ PUBLIC_PATH=${PUBLIC_PATH/"PROJECT_SLUG"/$PROJECT_SLUG}
 # Check yarn install
 if [[ -z "$(which yarn)" ]]
 then
-    echo -e "\n--> Can't find the yarn command."
-    echo -e "--> Make sure yarn is installed correctly. "
-    echo -e "--> $ brew install yarn"
+    echo -e "Can't find the yarn command."
+    echo -e "Make sure yarn is installed correctly. "
+    echo -e ""
+    echo -e "  brew install yarn"
+    echo -e ""
 
     exit 1
 
 else
-    echo -e "\n--> Yarn installed: OK"
-    echo -e "    $(which yarn)"
+    echo -e "[0/6] Yarn installed: $(which yarn)"
 
 fi
 
-echo -e "\n--> Downloading gulp-starter\n"
-curl -L https://github.com/mrhenry/gulp-starter/archive/master.zip > gulp-starter-master.zip
+echo -e "[1/6] Downloading template files"
 
-echo -e "\n--> Extracting\n"
-unzip gulp-starter-master.zip
+TMP_FILE=$(mktemp)
 
-echo -e "\n--> Copying files\n"
-rm gulp-starter/README.md
+(curl -L https://github.com/mrhenry/gulp-starter/archive/master.zip > "$TMP_FILE") > /dev/null 2>&1
+
+echo -e "[2/6] Extracting"
+
+unzip "$TMP_FILE" -d "$PWD" > /dev/null 2>&1
+
+echo -e "[3/6] Copying files"
+
+rm gulp-starter-master/README.md
 cp -R gulp-starter-master/template/* ./
 cp -R gulp-starter-master/template/.[^.]* ./
 
-echo -e "\n--> Bootstrapping\n"
+echo -e "[4/6] Bootstrapping '$PROJECT_SLUG' with public path '$PUBLIC_PATH'"
 
 mkdir -p $PUBLIC_PATH
 
@@ -70,12 +76,11 @@ sed -i -e "s:{{PUBLIC_PATH}}:${PUBLIC_PATH}:g" ./gulp/config.js
 sed -i -e "s:{{PROJECT_SLUG}}:${PROJECT_SLUG}:g" ./package.json
 sed -i -e "s:{{PROJECT_SLUG}}:${PROJECT_SLUG}:g" ./gulp/config.js
 
-echo -e "\nCreated public folder\n"
+echo -e "[5/6] Installing dependencies through Yarn"
 
-echo -e "\n--> Installing dependencies through Yarn\n"
-yarn install
+yarn install > /dev/null 2>&1
 
-echo -e "\n--> Removing installation files\n"
+echo -e "[6/6] Removing installation files"
+
+rm "$TMP_FILE"
 rm -Rf ./gulp-starter-master*
-
-echo -e "\n--> That's all, folks!\n"
