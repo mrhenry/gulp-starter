@@ -13,7 +13,8 @@ const babili = require('gulp-babel-minify');
 gulp.task('javascript:es6', () => {
 	return rollup({
 		entry: config.src,
-		plugins: [ resolve() ]
+		plugins: [ resolve() ],
+		format: 'es'
 	}).pipe(source(config.bundleName.replace('.js', '.es6.js')))
 	  .pipe(buffer())
 	  .pipe(gulp.dest(config.dest))
