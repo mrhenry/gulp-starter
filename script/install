@@ -67,6 +67,8 @@ echo -e "[3/6] Copying files"
 rm gulp-starter-master/README.md
 cp -R gulp-starter-master/template/* ./
 cp -R gulp-starter-master/template/.[^.]* ./
+cp -R gulp-starter-master/template/.eslintrc.js ./.eslintrc.js
+cp -R gulp-starter-master/template/.stylelintrc.js ./.stylelintrc.js
 
 echo -e "[4/6] Bootstrapping '$PROJECT_SLUG' with public path '$PUBLIC_PATH'"
 
