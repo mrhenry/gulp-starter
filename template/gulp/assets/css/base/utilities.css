@@ -1,4 +1,4 @@
-.u-clearfix:after {
+.u-clearfix::after {
 	content: ' ';
 	display: table;
 	clear: both;

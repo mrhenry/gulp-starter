@@ -12,10 +12,11 @@ Sources:
  - http://caniuse.com/#search=woff
 
 @font-face {
-  font-family: 'GT America';
-  src: url('fonts/gt-america-medium.woff2') format('woff2'),
-       url('fonts/gt-america-medium.woff') format('woff');
-  font-style: normal;
-  font-weight: 400;
+	font-family: 'GT America';
+	src:
+		url('fonts/gt-america-medium.woff2') format('woff2'),
+		url('fonts/gt-america-medium.woff') format('woff');
+	font-style: normal;
+	font-weight: 400;
 }
 */
