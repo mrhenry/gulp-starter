@@ -12,8 +12,7 @@ gulp.task('css', () => {
 	const processors = [
 		inlineImports({ path: config.src }),
 		cssnext({ browsers: config.browsers }),
-		nested(),
-		cssnano({ autoprefixer: false })
+		nested()
 	];
 
 	return gulp
