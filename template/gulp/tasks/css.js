@@ -1,25 +1,25 @@
-const gulp          = require('gulp');
-const config        = require('../config').css;
-const postcss       = require('gulp-postcss');
-const cssnano       = require('cssnano');
-const cssnext       = require('postcss-cssnext');
+const gulp = require('gulp');
+const config = require('../config').css;
+const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
+const cssnext = require('postcss-cssnext');
 const inlineImports = require('postcss-import');
-const nested        = require('postcss-nested');
-const rename        = require('gulp-rename');
+const nested = require('postcss-nested');
+const rename = require('gulp-rename');
 
 gulp.task('css', () => {
 	// cssnext also includes autoprefixer
 	const processors = [
 		inlineImports({ path: config.src }),
+		nested(),
 		cssnext({ browsers: config.browsers }),
-		nested()
 	];
 
 	return gulp
 		.src(config.src)
 		.pipe(postcss(processors))
 		.pipe(gulp.dest(config.dest))
-		.pipe(postcss([ cssnano({ autoprefixer: false }) ]))
+		.pipe(postcss([cssnano({ autoprefixer: false })]))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest(config.dest));
 });
