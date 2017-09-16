@@ -13,7 +13,7 @@ const babili = require('gulp-babel-minify');
 gulp.task('javascript:es6', () => {
 	const build = () => {
 		const rollupSettings = {
-			entry: config.src,
+			input: config.src,
 			format: 'es',
 			plugins: [resolve()],
 		};
@@ -31,17 +31,19 @@ gulp.task('javascript:es6', () => {
 });
 
 gulp.task('javascript:babel', () => {
-	return browserify(config.src, {
-		debug: true,
-	}).transform(babelify, {
-		presets: ['es2015'],
-	}).bundle()
-	  .pipe(source(config.bundleName))
-	  .pipe(buffer())
-	  .pipe(gulp.dest(config.dest))
-	  .pipe(uglify())
-	  .pipe(rename(config.bundleName.replace('.js', '.min.js')))
-	  .pipe(gulp.dest(config.dest));
+	const build = () => {
+		return browserify(config.src, { debug: true })
+			.transform(babelify, { presets: ['es2015'] })
+			.bundle()
+			.pipe(source(config.bundleName))
+			.pipe(buffer());
+	};
+
+	return build()
+		.pipe(gulp.dest(config.dest))
+		.pipe(uglify())
+		.pipe(rename(config.bundleName.replace('.js', '.min.js')))
+		.pipe(gulp.dest(config.dest));
 });
 
 gulp.task('javascript', [
