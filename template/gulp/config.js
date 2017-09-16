@@ -13,6 +13,10 @@ module.exports = {
 			`${sourcePath}/js/**/*.js`,
 			`${sourcePath}/js/app.js`,
 		],
+		browsers: [
+			'last 2 versions',
+			'> 0.5% in BE',
+		],
 		bundleName: 'app.js',
 	},
 	css: {

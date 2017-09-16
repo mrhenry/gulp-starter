@@ -32,8 +32,18 @@ gulp.task('javascript:es6', () => {
 
 gulp.task('javascript:babel', () => {
 	const build = () => {
+		const babelSettings = {
+			presets: [
+				['env', {
+					targets: {
+						browsers: config.browsers,
+					},
+				}],
+			],
+		};
+
 		return browserify(config.src, { debug: true })
-			.transform(babelify, { presets: ['es2015'] })
+			.transform(babelify, babelSettings)
 			.bundle()
 			.pipe(source(config.bundleName))
 			.pipe(buffer());
