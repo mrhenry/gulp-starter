@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const config = require('../config').icons;
-const changed = require('gulp-changed');
+const cheerio = require('gulp-cheerio');
 const imagemin = require('gulp-imagemin');
 const svgstore = require('gulp-svgstore');
 const rename = require('gulp-rename');
@@ -30,6 +30,14 @@ gulp.task('icons', () => {
 		.pipe(svgstore({
 			inlineSvg: true,
 			fileName: config.filename,
+		}))
+		.pipe(cheerio({
+			run: ($) => {
+				$('svg').attr('style', 'display:none');
+			},
+			parserOptions: {
+				xmlMode: true,
+			},
 		}))
 		.pipe(gulp.dest(config.dest));
 });
