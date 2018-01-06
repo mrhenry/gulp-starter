@@ -1,8 +1,8 @@
 const gulp = require('gulp');
 const config = require('../config').fonts;
-const changed = require('gulp-changed');
 
-gulp.task('fonts', () => gulp
-		.src(config.src)
-		.pipe(changed(config.dest))
-		.pipe(gulp.dest(config.dest)));
+const fonts = () => gulp
+	.src(config.src, { since: gulp.lastRun(fonts) })
+	.pipe(gulp.dest(config.dest));
+
+module.exports = fonts;

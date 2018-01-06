@@ -7,19 +7,19 @@ const inlineImports = require('postcss-import');
 const nested = require('postcss-nested');
 const rename = require('gulp-rename');
 
-gulp.task('css', () => {
-	// cssnext also includes autoprefixer
-	const processors = [
-		inlineImports({ path: config.src }),
-		nested(),
-		cssnext({ browsers: config.browsers }),
-	];
+// cssnext also includes autoprefixer
+const processors = [
+	inlineImports({ path: config.src }),
+	nested(),
+	cssnext({ browsers: config.browsers }),
+];
 
-	return gulp
-		.src(config.src)
-		.pipe(postcss(processors))
-		.pipe(gulp.dest(config.dest))
-		.pipe(postcss([cssnano({ autoprefixer: false })]))
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest(config.dest));
-});
+const css = () => gulp
+	.src(config.src)
+	.pipe(postcss(processors))
+	.pipe(gulp.dest(config.dest))
+	.pipe(postcss([cssnano({ autoprefixer: false })]))
+	.pipe(rename({ suffix: '.min' }))
+	.pipe(gulp.dest(config.dest));
+
+module.exports = css;
