@@ -11,11 +11,11 @@
     "lint": "yarn lint:javascript & yarn lint:css"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babelify": "^8.0.0",
-    "babel-core": "^6.26.0",
     "browserify": "^15.0.0",
-    "cssnano": "^3.10.0",
+    "cssnano": "^4.0.0-rc.2",
     "eslint": "^4.14.0",
     "eslint-config-mrhenry": "^1.0.0",
     "eslint-plugin-import": "^2.8.0",
