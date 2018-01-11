@@ -10,7 +10,7 @@ const rollup = require('rollup-stream');
 const resolve = require('rollup-plugin-node-resolve');
 const babili = require('gulp-babel-minify');
 
-gulp.task('javascript:es6', () => {
+const es6 = () => {
 	const build = () => {
 		const rollupSettings = {
 			input: config.src,
@@ -28,9 +28,9 @@ gulp.task('javascript:es6', () => {
 		.pipe(babili())
 		.pipe(rename(config.bundleName.replace('.js', '.es6.min.js')))
 		.pipe(gulp.dest(config.dest));
-});
+};
 
-gulp.task('javascript:babel', () => {
+const babel = () => {
 	const build = () => {
 		const babelSettings = {
 			presets: [
@@ -54,9 +54,12 @@ gulp.task('javascript:babel', () => {
 		.pipe(uglify())
 		.pipe(rename(config.bundleName.replace('.js', '.min.js')))
 		.pipe(gulp.dest(config.dest));
-});
+};
 
-gulp.task('javascript', [
-	'javascript:es6',
-	'javascript:babel',
-]);
+const javascript = gulp.parallel(es6, babel);
+
+module.exports = {
+	es6,
+	babel,
+	javascript,
+};

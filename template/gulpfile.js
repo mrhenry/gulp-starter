@@ -1,17 +1,7 @@
-/*
-  gulpfile.js
-  ===========
-  Rather than manage one giant configuration file responsible
-  for creating multiple tasks, each task has been broken out into
-  its own file in gulp/tasks. Any files in that directory get
-  automatically required below.
+const gulp = require('gulp');
+const MrHenry = require('gulp-registry-mrhenry');
+const config = require('./gulp/config');
 
-  To add a new task, simply add a new task file that directory.
-  gulp/tasks/default.js specifies the default set of tasks to run
-  when you run `gulp`.
-*/
+const tasks = new MrHenry(config);
 
-const requireDir = require('require-dir');
-
-// Require all tasks in gulp/tasks, including subfolders
-requireDir('./gulp/tasks', { recurse: true });
+gulp.registry(tasks);
