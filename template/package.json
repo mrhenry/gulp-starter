@@ -10,32 +10,16 @@
     "lint:css": "stylelint --fix gulp/assets/css/**/*.css",
     "lint": "yarn lint:javascript & yarn lint:css"
   },
+  "dependencies": {
+    "normalize.css": "^7.0.0"
+  },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babelify": "^8.0.0",
-    "browserify": "^15.0.0",
-    "cssnano": "^4.0.0-rc.2",
-    "eslint": "^4.14.0",
-    "eslint-config-mrhenry": "^1.0.0",
+    "eslint": "^4.15.0",
+    "eslint-config-mrhenry": "^2.0.0",
     "eslint-plugin-import": "^2.8.0",
     "gulp": "^4.0.0",
-    "gulp-babel-minify": "^0.2.0",
-    "gulp-cheerio": "^0.6.3",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-postcss": "^7.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-svgstore": "^6.1.1",
-    "gulp-uglify": "^3.0.0",
-    "normalize.css": "^7.0.0",
-    "postcss-cssnext": "^3.0.2",
-    "postcss-import": "^11.0.0",
-    "postcss-nested": "^3.0.0",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-stream": "^1.24.1",
+    "gulp-registry-mrhenry": "^0.1.0",
     "stylelint": "^8.4.0",
-    "stylelint-config-mrhenry": "^1.0.0",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "stylelint-config-mrhenry": "^2.0.0"
   }
 }
