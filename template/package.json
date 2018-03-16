@@ -11,15 +11,15 @@
     "lint": "yarn lint:javascript & yarn lint:css"
   },
   "dependencies": {
-    "normalize.css": "^7.0.0"
+    "normalize.css": "^8.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.15.0",
-    "eslint-config-mrhenry": "^2.0.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint": "^4.18.2",
+    "eslint-config-mrhenry": "^2.1.0",
+    "eslint-plugin-import": "^2.9.0",
     "gulp": "^4.0.0",
     "gulp-registry-mrhenry": "^0.1.0",
-    "stylelint": "^8.4.0",
-    "stylelint-config-mrhenry": "^2.0.0"
+    "stylelint": "^9.1.3",
+    "stylelint-config-mrhenry": "^3.0.0"
   }
 }
