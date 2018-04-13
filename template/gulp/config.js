@@ -44,4 +44,11 @@ module.exports = {
 		src: `${sourcePath}/fonts/**`,
 		dest: `${buildPath}/fonts`,
 	},
+	favicons: {
+		src: {
+			png: `${sourcePath}/favicons/favicon.png`,
+			svg: `${sourcePath}/favicons/favicon.svg`,
+		},
+		dest: `${buildPath}/favicons`,
+	},
 };
