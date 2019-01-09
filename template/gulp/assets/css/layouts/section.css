@@ -1,0 +1,24 @@
+.section {
+	padding-bottom: 2rem;
+	padding-top: 2rem;
+	position: relative;
+
+	@media (--mq-from-small) {
+		padding-bottom: 3rem;
+		padding-top: 3rem;
+	}
+
+	@media (--mq-from-medium) {
+		padding-bottom: 4rem;
+		padding-top: 4rem;
+	}
+
+	@media (--mq-from-wide) {
+		padding-bottom: 5rem;
+		padding-top: 5rem;
+	}
+
+	& + & {
+		padding-top: 0;
+	}
+}
