@@ -13,3 +13,5 @@
 /* Modules */
 
 /* Layouts */
+@import 'layouts/section.css';
+@import 'layouts/wrapper.css';

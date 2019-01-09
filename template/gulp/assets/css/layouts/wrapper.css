@@ -1,0 +1,16 @@
+.wrapper {
+	box-sizing: border-box;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	width: 100%;
+
+	@media (--mq-from-small) {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+
+	@media (--mq-from-large) {
+		padding-left: calc((100% - 1540px) / 2);
+		padding-right: calc((100% - 1540px) / 2);
+	}
+}
